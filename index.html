@@ -1,0 +1,666 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="www.diegoarceparcelas.cl, plataforma para buscar, comparar y reservar parcelas con asesoría, financiamiento y documentación clara."
+    />
+    <title>www.diegoarceparcelas.cl</title>
+    <link rel="preconnect" href="https://images.unsplash.com" />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js" defer></script>
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <header class="site-header" data-header>
+      <a class="brand" href="#inicio" aria-label="www.diegoarceparcelas.cl">
+        <span class="brand-mark">DA</span>
+        <span>
+          <strong>www.diegoarceparcelas.cl</strong>
+          <small>Parcelas verificadas</small>
+        </span>
+      </a>
+
+      <nav class="main-nav" aria-label="Navegación principal">
+        <a href="#parcelas">Parcelas</a>
+        <a href="#proceso">Proceso</a>
+        <a href="#inversion">Inversión</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+
+      <a class="header-cta" href="#contacto">
+        <i data-lucide="calendar-check" aria-hidden="true"></i>
+        Agendar visita
+      </a>
+    </header>
+
+    <main>
+      <section class="hero" id="inicio" aria-labelledby="hero-title">
+        <div class="hero-bg" role="img" aria-label="Vista aérea de campos y parcelas rurales"></div>
+        <div class="hero-overlay"></div>
+
+        <div class="hero-content">
+          <p class="eyebrow">Compra segura de terrenos rurales</p>
+          <h1 id="hero-title">Parcelas listas para visitar, comparar y reservar online</h1>
+          <p class="hero-copy">
+            Encuentra terrenos con acceso, rol, documentación revisada y acompañamiento desde la primera consulta hasta la firma.
+          </p>
+
+          <form class="search-panel" aria-label="Buscar parcelas">
+            <label>
+              <span>Zona</span>
+              <select id="zoneFilter">
+                <option value="todas">Todas las zonas</option>
+                <option value="sur">Sur</option>
+                <option value="centro">Centro</option>
+                <option value="costa">Costa</option>
+              </select>
+            </label>
+            <label>
+              <span>Presupuesto</span>
+              <select id="budgetFilter">
+                <option value="todos">Todos</option>
+                <option value="hasta-12m">Hasta $12.000.000</option>
+                <option value="12m-16m">$12.000.000 a $16.000.000</option>
+                <option value="sobre-20m">Sobre $20.000.000</option>
+                <option value="30m-40m">$30.000.000 a $40.000.000</option>
+                <option value="sobre-40m">Sobre $40.000.000</option>
+                <option value="financiamiento">Con financiamiento directo</option>
+              </select>
+            </label>
+            <label>
+              <span>Uso esperado</span>
+              <select id="useFilter">
+                <option value="todos">Todos</option>
+                <option value="vivir">Vivir</option>
+                <option value="inversion">Inversión</option>
+                <option value="descanso">Descanso</option>
+              </select>
+            </label>
+            <button type="submit">
+              <i data-lucide="search" aria-hidden="true"></i>
+              Buscar
+            </button>
+          </form>
+        </div>
+
+        <aside class="hero-strip" aria-label="Resumen de plataforma">
+          <div>
+            <strong>34</strong>
+            <span>unidades del proyecto</span>
+          </div>
+          <div>
+            <strong>7.000 m2</strong>
+            <span>superficie desde</span>
+          </div>
+          <div>
+            <strong>15 m</strong>
+            <span>factibilidad de agua</span>
+          </div>
+        </aside>
+      </section>
+
+      <section class="section intro-band" aria-label="Servicios clave">
+        <div class="feature">
+          <i data-lucide="file-check-2" aria-hidden="true"></i>
+          <div>
+            <strong>Documentos revisados</strong>
+            <span>Rol, dominio vigente, planos y servidumbres antes de reservar.</span>
+          </div>
+        </div>
+        <div class="feature">
+          <i data-lucide="route" aria-hidden="true"></i>
+          <div>
+            <strong>Visitas coordinadas</strong>
+            <span>Agenda en terreno con ubicación, accesos y puntos de referencia.</span>
+          </div>
+        </div>
+        <div class="feature">
+          <i data-lucide="wallet-cards" aria-hidden="true"></i>
+          <div>
+            <strong>Opciones de pago</strong>
+            <span>Reserva, contado, cuotas directas y alternativas de financiamiento.</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="section split-section" id="parcelas">
+        <div class="section-heading">
+          <p class="eyebrow">Proyectos disponibles</p>
+          <h2>Parcelas destacadas</h2>
+          <p>Resumen comercial de proyectos activos, con valores, beneficios, ubicación y espacios listos para las imágenes oficiales.</p>
+        </div>
+
+        <div class="catalog-layout">
+          <aside class="filters" aria-label="Filtros rápidos">
+            <h3>Filtros</h3>
+            <button class="filter-chip active" type="button" data-filter="todas">Todas</button>
+            <button class="filter-chip" type="button" data-filter="sur">Sur</button>
+            <button class="filter-chip" type="button" data-filter="centro">Centro</button>
+            <button class="filter-chip" type="button" data-filter="costa">Costa</button>
+            <div class="map-preview" aria-label="Mapa referencial de proyectos">
+              <a
+                class="pin pin-a map-pin-link"
+                href="https://maps.app.goo.gl/FUaR67cFdNDALp9d6"
+                target="_blank"
+                rel="noopener"
+                aria-label="Abrir ubicación de Riberas de Antuco en Google Maps"
+                title="Riberas de Antuco"
+              ></a>
+              <a
+                class="pin pin-b map-pin-link"
+                href="https://maps.app.goo.gl/raehdrZzeRTTJtsU7"
+                target="_blank"
+                rel="noopener"
+                aria-label="Abrir ubicación referencial de Bordevista en Google Maps"
+                title="Bordevista"
+              ></a>
+              <a
+                class="pin pin-c map-pin-link"
+                href="https://maps.app.goo.gl/rcLiL4JgqAuHnvzBA"
+                target="_blank"
+                rel="noopener"
+                aria-label="Abrir ubicación de El Dorado en Google Maps"
+                title="El Dorado"
+              ></a>
+              <a
+                class="pin pin-d map-pin-link"
+                href="https://maps.app.goo.gl/EB4yiADXdJVSwBga8"
+                target="_blank"
+                rel="noopener"
+                aria-label="Abrir ubicación de Estancia Victoria en Google Maps"
+                title="Estancia Victoria"
+              ></a>
+              <a
+                class="pin pin-e map-pin-link"
+                href="https://maps.app.goo.gl/hS16EqrCBkWgFKh77"
+                target="_blank"
+                rel="noopener"
+                aria-label="Abrir ubicación de Altos de Nahuelcura en Google Maps"
+                title="Altos de Nahuelcura"
+              ></a>
+            </div>
+            <p>Ubicaciones clickeables para revisar cada proyecto directamente en Google Maps.</p>
+          </aside>
+
+          <div class="listing-grid" id="listingGrid">
+            <article class="parcel-card featured-project-card" data-zone="sur" data-budget="12m-16m financiamiento hasta-12m" data-use="vivir inversion descanso">
+              <div class="project-gallery-placeholder rich-gallery" aria-label="Galería de imágenes del proyecto Riberas de Antuco">
+                <button
+                  class="gallery-expand"
+                  type="button"
+                  data-open-gallery="Riberas de Antuco"
+                  aria-label="Ampliar galería de Riberas de Antuco"
+                >
+                  <i data-lucide="maximize-2" aria-hidden="true"></i>
+                </button>
+                <div class="project-image-slot main-slot" data-image-src="imagenes/riberas-de-antuco-3.webp">
+                  <span>riberas-de-antuco-3.webp</span>
+                </div>
+                <div class="project-image-slot" data-image-src="imagenes/riberas-de-antuco-1.webp">
+                  <span>riberas-de-antuco-1.webp</span>
+                </div>
+                <div class="project-image-slot" data-image-src="imagenes/riberas-de-antuco-2.webp">
+                  <span>riberas-de-antuco-2.webp</span>
+                </div>
+                <div class="project-image-slot gallery-only" data-image-src="imagenes/riberas-de-antuco-4.webp">
+                  <span>riberas-de-antuco-4.webp</span>
+                </div>
+                <div class="project-image-slot gallery-only" data-image-src="imagenes/riberas-de-antuco-5.webp">
+                  <span>riberas-de-antuco-5.webp</span>
+                </div>
+                <div class="project-image-slot gallery-only" data-image-src="imagenes/riberas-de-antuco-6.webp">
+                  <span>riberas-de-antuco-6.webp</span>
+                </div>
+                <div class="project-image-slot gallery-only" data-image-src="imagenes/riberas-de-antuco-7.webp">
+                  <span>riberas-de-antuco-7.webp</span>
+                </div>
+                <div class="project-image-slot gallery-only" data-image-src="imagenes/riberas-de-antuco-8.webp">
+                  <span>riberas-de-antuco-8.webp</span>
+                </div>
+                <div class="project-image-slot gallery-only" data-image-src="imagenes/riberas-de-antuco-9.webp">
+                  <span>riberas-de-antuco-9.webp</span>
+                </div>
+                <div class="project-image-slot gallery-only" data-image-src="imagenes/riberas-de-antuco-10.webp">
+                  <span>riberas-de-antuco-10.webp</span>
+                </div>
+                <div class="project-image-slot gallery-only" data-image-src="imagenes/riberas-de-antuco-11.webp">
+                  <span>riberas-de-antuco-11.webp</span>
+                </div>
+                <div class="project-image-slot gallery-only" data-image-src="imagenes/riberas-de-antuco-12.webp">
+                  <span>riberas-de-antuco-12.webp</span>
+                </div>
+              </div>
+              <div class="parcel-body">
+                <div class="parcel-top">
+                  <span>Sector Antuco, Región del Biobío</span>
+                  <strong>Desde $15.990.000</strong>
+                </div>
+                <h3>Riberas de Antuco</h3>
+                <p>
+                  Proyecto exclusivo de 34 unidades, con parcelas desde 7.000 m2, acceso directo desde camino asfaltado,
+                  vista privilegiada al Volcán Antuco y cercanía al río Laja.
+                </p>
+                <div class="price-strip">
+                  <span>Contado desde <strong>$11.990.000</strong></span>
+                  <span>Pie desde <strong>$4.990.000</strong></span>
+                </div>
+                <ul class="project-benefits">
+                  <li><i data-lucide="ruler" aria-hidden="true"></i> Parcelas desde 7.000 m2</li>
+                  <li><i data-lucide="droplets" aria-hidden="true"></i> Factibilidad de agua desde 15 metros</li>
+                  <li><i data-lucide="plug" aria-hidden="true"></i> Factibilidad eléctrica a la entrada</li>
+                  <li><i data-lucide="mountain" aria-hidden="true"></i> Vista al Volcán Antuco</li>
+                  <li><i data-lucide="shield-check" aria-hidden="true"></i> Portón de acceso y caminos estabilizados</li>
+                  <li><i data-lucide="route" aria-hidden="true"></i> Acceso directo desde camino asfaltado</li>
+                </ul>
+                <div class="project-actions">
+                  <a
+                    class="ghost-button"
+                    href="https://maps.app.goo.gl/FUaR67cFdNDALp9d6"
+                    target="_blank"
+                    rel="noopener"
+                  >
+                    Ver ubicación
+                  </a>
+                  <button
+                    class="ghost-button"
+                    type="button"
+                    data-open-modal="Riberas de Antuco"
+                    data-modal-description="Proyecto de 34 unidades en Sector Antuco, con parcelas desde 7.000 m2, acceso asfaltado, caminos interiores estabilizados, portón de acceso, vista al Volcán Antuco y cercanía al río Laja."
+                  >
+                    Ver detalle
+                  </button>
+                </div>
+              </div>
+            </article>
+
+            <article class="parcel-card featured-project-card" data-zone="sur" data-budget="sobre-20m financiamiento 12m-16m" data-use="vivir inversion descanso">
+              <div class="project-gallery-placeholder" aria-label="Espacios reservados para imágenes del proyecto Bordevista en formato webp">
+                <div class="project-image-slot main-slot" data-image-src="imagenes/bordevista-1.webp">
+                  <span>bordevista-1.webp</span>
+                </div>
+                <div class="project-image-slot" data-image-src="imagenes/bordevista-2.webp">
+                  <span>bordevista-2.webp</span>
+                </div>
+                <div class="project-image-slot" data-image-src="imagenes/bordevista-3.webp">
+                  <span>bordevista-3.webp</span>
+                </div>
+              </div>
+              <div class="parcel-body">
+                <div class="parcel-top">
+                  <span>Sector Chancal, Quillón</span>
+                  <strong>Desde $20.990.000</strong>
+                </div>
+                <h3>Bordevista</h3>
+                <p>
+                  Proyecto exclusivo de solo 11 parcelas de 5.000 m2, ubicado en Sector Chancal, Quillón,
+                  a solo 1 hora de Concepción, con bosque nativo, excelente conectividad y entorno natural.
+                </p>
+                <div class="price-strip">
+                  <span>Contado desde <strong>$14.990.000</strong></span>
+                  <span>Pie desde <strong>$4.990.000</strong></span>
+                </div>
+                <ul class="project-benefits">
+                  <li><i data-lucide="badge-check" aria-hidden="true"></i> Rol propio aprobado por SAG</li>
+                  <li><i data-lucide="droplets" aria-hidden="true"></i> Factibilidad de agua entre 11 y 15 metros</li>
+                  <li><i data-lucide="plug" aria-hidden="true"></i> Factibilidad eléctrica con COELCHA</li>
+                  <li><i data-lucide="trees" aria-hidden="true"></i> Bosque nativo y entorno natural</li>
+                  <li><i data-lucide="shield-check" aria-hidden="true"></i> 2 portones de acceso</li>
+                  <li><i data-lucide="route" aria-hidden="true"></i> Caminos interiores estabilizados</li>
+                </ul>
+                <div class="project-actions">
+                  <a
+                    class="ghost-button"
+                    href="https://maps.app.goo.gl/raehdrZzeRTTJtsU7"
+                    target="_blank"
+                    rel="noopener"
+                  >
+                    Ver ubicación
+                  </a>
+                  <button
+                    class="ghost-button"
+                    type="button"
+                    data-open-modal="Bordevista"
+                    data-modal-description="Proyecto de 11 parcelas de 5.000 m2 en Sector Chancal, Quillón, a solo 1 hora de Concepción, con rol propio aprobado por SAG, factibilidad de agua entre 11 y 15 metros, factibilidad eléctrica con COELCHA, caminos estabilizados y 2 portones de acceso."
+                  >
+                    Ver detalle
+                  </button>
+                </div>
+              </div>
+            </article>
+
+            <article class="parcel-card featured-project-card premium-project-card" data-zone="sur" data-budget="sobre-40m financiamiento" data-use="vivir inversion descanso">
+              <div class="project-gallery-placeholder" aria-label="Espacios reservados para imágenes del proyecto El Dorado en formato webp">
+                <div class="project-image-slot main-slot" data-image-src="imagenes/el-dorado-1.webp">
+                  <span>el-dorado-1.webp</span>
+                </div>
+                <div class="project-image-slot" data-image-src="imagenes/el-dorado-2.webp">
+                  <span>el-dorado-2.webp</span>
+                </div>
+                <div class="project-image-slot" data-image-src="imagenes/el-dorado-3.webp">
+                  <span>el-dorado-3.webp</span>
+                </div>
+              </div>
+              <div class="parcel-body">
+                <div class="parcel-top">
+                  <span>Ubicación por confirmar</span>
+                  <strong>Contado desde $42.990.000</strong>
+                </div>
+                <h3>El Dorado</h3>
+                <p>
+                  Macro lotes desde 1,5 hectáreas con cierre perimetral, parcelas planas con lomaje suave,
+                  pinos y álamos, caminos estabilizados y pórtico de acceso.
+                </p>
+                <div class="price-strip">
+                  <span>Pie desde <strong>$19.990.000</strong></span>
+                  <span>Saldo hasta <strong>36 cuotas</strong></span>
+                </div>
+                <ul class="project-benefits">
+                  <li><i data-lucide="ruler" aria-hidden="true"></i> Macro lotes desde 1,5 hectáreas</li>
+                  <li><i data-lucide="fence" aria-hidden="true"></i> Cierre perimetral y pórtico de acceso</li>
+                  <li><i data-lucide="droplets" aria-hidden="true"></i> Agua desde 10 a 15 metros</li>
+                  <li><i data-lucide="plug" aria-hidden="true"></i> Postación aérea incluida con COELCHA</li>
+                  <li><i data-lucide="waves" aria-hidden="true"></i> Laguna navegable de 3.500 m2</li>
+                  <li><i data-lucide="circle-dot" aria-hidden="true"></i> Cancha de futbolito y zona común</li>
+                </ul>
+                <div class="project-actions">
+                  <a
+                    class="ghost-button"
+                    href="https://maps.app.goo.gl/rcLiL4JgqAuHnvzBA"
+                    target="_blank"
+                    rel="noopener"
+                  >
+                    Ver ubicación
+                  </a>
+                  <button
+                    class="ghost-button"
+                    type="button"
+                    data-open-modal="El Dorado"
+                    data-modal-description="Macro lotes desde 1,5 hectáreas con cierre perimetral, caminos estabilizados, pórtico de acceso, parcelas planas con lomaje suave, pinos y álamos. Cuenta con zona común, laguna navegable de 3.500 m2, cancha de futbolito, agua desde 10 a 15 metros y postación aérea incluida con empalme COELCHA."
+                  >
+                    Ver detalle
+                  </button>
+                </div>
+              </div>
+            </article>
+
+            <article class="parcel-card featured-project-card premium-project-card" data-zone="sur" data-budget="30m-40m sobre-40m financiamiento" data-use="vivir inversion descanso">
+              <div class="project-gallery-placeholder" aria-label="Espacios reservados para imágenes del proyecto Estancia Victoria en formato webp">
+                <div class="project-image-slot main-slot" data-image-src="imagenes/estancia-victoria-1.webp">
+                  <span>estancia-victoria-1.webp</span>
+                </div>
+                <div class="project-image-slot" data-image-src="imagenes/estancia-victoria-2.webp">
+                  <span>estancia-victoria-2.webp</span>
+                </div>
+                <div class="project-image-slot" data-image-src="imagenes/estancia-victoria-3.webp">
+                  <span>estancia-victoria-3.webp</span>
+                </div>
+              </div>
+              <div class="parcel-body">
+                <div class="parcel-top">
+                  <span>Cayanco, a 20 min de Los Ángeles</span>
+                  <strong>Desde $37.900.000</strong>
+                </div>
+                <h3>Estancia Victoria</h3>
+                <p>
+                  Parcelas de 5.000 m2, 100% planas y listas para construir, ubicadas en Cayanco por Ruta 180,
+                  con rol propio aprobado por SAG, caminos estabilizados y acceso con pórtico eléctrico.
+                </p>
+                <div class="price-strip">
+                  <span>Hasta <strong>$43.900.000</strong></span>
+                  <span>Pie desde <strong>$19.990.000</strong></span>
+                </div>
+                <ul class="project-benefits">
+                  <li><i data-lucide="ruler" aria-hidden="true"></i> Parcelas planas de 5.000 m2</li>
+                  <li><i data-lucide="badge-check" aria-hidden="true"></i> Rol propio aprobado por SAG</li>
+                  <li><i data-lucide="door-open" aria-hidden="true"></i> Pórtico eléctrico y acceso peatonal</li>
+                  <li><i data-lucide="plug" aria-hidden="true"></i> Luz proyectada para 2026</li>
+                  <li><i data-lucide="droplets" aria-hidden="true"></i> Agua por pozo o puntera</li>
+                  <li><i data-lucide="sun" aria-hidden="true"></i> Iluminación solar en servidumbre</li>
+                </ul>
+                <div class="project-actions">
+                  <a
+                    class="ghost-button"
+                    href="https://maps.app.goo.gl/EB4yiADXdJVSwBga8"
+                    target="_blank"
+                    rel="noopener"
+                  >
+                    Ver ubicación
+                  </a>
+                  <button
+                    class="ghost-button"
+                    type="button"
+                    data-open-modal="Estancia Victoria"
+                    data-modal-description="Parcelas de 5.000 m2, 100% planas y listas para construir en Cayanco, a 20 minutos de Los Ángeles por Ruta 180. Valores desde $37.900.000 hasta $43.900.000, pie desde $19.990.000, hasta 24 cuotas sin interés en UF o hasta 48 cuotas fijas en pesos. Incluye rol propio aprobado por SAG, pórtico eléctrico, acceso peatonal, caminos estabilizados, agua por pozo o puntera e iluminación solar en servidumbre."
+                  >
+                    Ver detalle
+                  </button>
+                </div>
+              </div>
+            </article>
+
+            <article class="parcel-card featured-project-card" data-zone="sur" data-budget="sobre-20m financiamiento" data-use="vivir inversion descanso">
+              <div class="project-gallery-placeholder" aria-label="Espacios reservados para imágenes del proyecto Altos de Nahuelcura en formato webp">
+                <div class="project-image-slot main-slot" data-image-src="imagenes/altos-de-nahuelcura-1.webp">
+                  <span>altos-de-nahuelcura-1.webp</span>
+                </div>
+                <div class="project-image-slot" data-image-src="imagenes/altos-de-nahuelcura-2.webp">
+                  <span>altos-de-nahuelcura-2.webp</span>
+                </div>
+                <div class="project-image-slot" data-image-src="imagenes/altos-de-nahuelcura-3.webp">
+                  <span>altos-de-nahuelcura-3.webp</span>
+                </div>
+              </div>
+              <div class="parcel-body">
+                <div class="parcel-top">
+                  <span>A 40 min de Concepción y 30 min de Yumbel</span>
+                  <strong>Desde $19.990.000</strong>
+                </div>
+                <h3>Altos de Nahuelcura</h3>
+                <p>
+                  Proyecto con parcelas planas y de lomaje suave, vegetación nativa, deslindes cercados,
+                  pórtico de acceso y factibilidades listas para proyectar vivienda, descanso o inversión.
+                </p>
+                <div class="price-strip">
+                  <span>Hasta <strong>$25.990.000</strong></span>
+                  <span>Pie desde <strong>$4.990.000</strong></span>
+                </div>
+                <ul class="project-benefits">
+                  <li><i data-lucide="badge-check" aria-hidden="true"></i> Rol propio aprobado por SAG</li>
+                  <li><i data-lucide="droplets" aria-hidden="true"></i> Factibilidad de agua desde 8 metros</li>
+                  <li><i data-lucide="plug" aria-hidden="true"></i> Factibilidad eléctrica</li>
+                  <li><i data-lucide="door-open" aria-hidden="true"></i> Pórtico de acceso</li>
+                  <li><i data-lucide="fence" aria-hidden="true"></i> Deslindes de parcela cercados</li>
+                  <li><i data-lucide="trees" aria-hidden="true"></i> Vegetación nativa</li>
+                </ul>
+                <div class="project-actions">
+                  <a
+                    class="ghost-button"
+                    href="https://maps.app.goo.gl/hS16EqrCBkWgFKh77"
+                    target="_blank"
+                    rel="noopener"
+                  >
+                    Ver ubicación
+                  </a>
+                  <button
+                    class="ghost-button"
+                    type="button"
+                    data-open-modal="Altos de Nahuelcura"
+                    data-modal-description="Proyecto a 40 minutos de Concepción y 30 minutos de Yumbel, con valores desde $19.990.000 hasta $25.990.000 y financiamiento directo con pie desde $4.990.000. Cuenta con rol propio aprobado por SAG, factibilidad de agua desde 8 metros, factibilidad eléctrica, pórtico de acceso, deslindes cercados, parcelas planas con lomaje suave y vegetación nativa."
+                  >
+                    Ver detalle
+                  </button>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section process-section" id="proceso">
+        <div class="section-heading">
+          <p class="eyebrow">Compra acompañada</p>
+          <h2>Un proceso simple, con claridad documental</h2>
+        </div>
+        <div class="steps">
+          <article>
+            <span>01</span>
+            <h3>Elige y compara</h3>
+            <p>Revisa proyectos por zona, precio, superficie, conectividad y potencial de uso.</p>
+          </article>
+          <article>
+            <span>02</span>
+            <h3>Agenda visita</h3>
+            <p>Coordinamos recorrido, puntos de acceso y disponibilidad del asesor en terreno.</p>
+          </article>
+          <article>
+            <span>03</span>
+            <h3>Reserva segura</h3>
+            <p>Recibe carpeta documental, condiciones comerciales y pasos de firma.</p>
+          </article>
+          <article>
+            <span>04</span>
+            <h3>Firma y entrega</h3>
+            <p>Acompañamiento hasta la escritura, inscripción y entrega formal del terreno.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="investment" id="inversion">
+        <div class="investment-media"></div>
+        <div class="investment-content">
+          <p class="eyebrow">Decisión informada</p>
+          <h2>Evalúa plusvalía, conectividad y uso futuro antes de comprar</h2>
+          <p>
+            Cada proyecto se presenta con información comercial clara y criterios de revisión para que puedas decidir con calma:
+            accesos, cercanía a servicios, normativa, entorno y opciones de pago.
+          </p>
+          <div class="metrics">
+            <div>
+              <strong>$11.990.000</strong>
+              <span>oportunidad contado</span>
+            </div>
+            <div>
+              <strong>7.000 m2</strong>
+              <span>parcelas desde</span>
+            </div>
+            <div>
+              <strong>$4.990.000</strong>
+              <span>pie financiamiento</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section testimonials" aria-label="Opiniones de compradores">
+        <div class="section-heading">
+          <p class="eyebrow">Confianza</p>
+          <h2>Compradores que avanzaron con acompañamiento</h2>
+        </div>
+        <div class="quote-grid">
+          <figure>
+            <blockquote>La carpeta documental venía ordenada y pudimos revisar todo antes de reservar.</blockquote>
+            <figcaption>Carolina M. · Curacaví</figcaption>
+          </figure>
+          <figure>
+            <blockquote>Nos mostraron varias opciones según presupuesto y no sentimos presión para decidir.</blockquote>
+            <figcaption>Felipe R. · Puerto Varas</figcaption>
+          </figure>
+          <figure>
+            <blockquote>La visita fue puntual, con referencias claras y explicación de accesos y servicios.</blockquote>
+            <figcaption>Daniela P. · Pichilemu</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="contact-section" id="contacto">
+        <div class="contact-copy">
+          <p class="eyebrow">Hablemos de tu búsqueda</p>
+          <h2>Recibe una selección de parcelas según tu presupuesto</h2>
+          <p>
+            Cuéntanos zona, objetivo y rango de inversión. Un asesor te enviará alternativas disponibles y horarios de visita.
+          </p>
+        </div>
+        <form class="contact-form">
+          <label>
+            <span>Nombre</span>
+            <input type="text" name="name" placeholder="Tu nombre" required />
+          </label>
+          <label>
+            <span>Teléfono</span>
+            <input type="tel" name="phone" placeholder="+56 9 1234 5678" required />
+          </label>
+          <label>
+            <span>Zona de interés</span>
+            <select name="zone" required>
+              <option value="">Selecciona una zona</option>
+              <option>Sur</option>
+              <option>Centro</option>
+              <option>Costa</option>
+              <option>Aún no lo sé</option>
+            </select>
+          </label>
+          <label>
+            <span>Mensaje</span>
+            <textarea name="message" rows="4" placeholder="Busco una parcela para..."></textarea>
+          </label>
+          <button type="submit">
+            <i data-lucide="send" aria-hidden="true"></i>
+            Enviar solicitud
+          </button>
+          <p class="form-note" data-form-note>Respuesta estimada durante el mismo día hábil.</p>
+        </form>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div>
+        <strong>www.diegoarceparcelas.cl</strong>
+        <span>Venta de terrenos rurales con asesoría comercial y documental.</span>
+      </div>
+      <div class="footer-links">
+        <a href="#parcelas">Parcelas</a>
+        <a href="#proceso">Proceso</a>
+        <a href="#contacto">Contacto</a>
+      </div>
+    </footer>
+
+    <dialog class="parcel-modal" id="parcelModal">
+      <button class="modal-close" type="button" aria-label="Cerrar detalle" data-close-modal>
+        <i data-lucide="x" aria-hidden="true"></i>
+      </button>
+      <p class="eyebrow">Detalle de parcela</p>
+      <h2 data-modal-title>Proyecto</h2>
+      <p>
+        <span data-modal-text>
+          Selecciona un proyecto para revisar su resumen comercial, beneficios principales, ubicación y condiciones destacadas.
+        </span>
+      </p>
+      <div class="modal-actions">
+        <a class="primary-link" href="#contacto" data-close-modal>Solicitar información</a>
+        <button class="ghost-button" type="button" data-close-modal>Seguir viendo</button>
+      </div>
+    </dialog>
+
+    <dialog class="gallery-modal" id="galleryModal">
+      <button class="modal-close gallery-close" type="button" aria-label="Cerrar galería" data-close-gallery>
+        <i data-lucide="x" aria-hidden="true"></i>
+      </button>
+      <div class="gallery-viewer">
+        <button class="gallery-nav gallery-prev" type="button" aria-label="Imagen anterior" data-gallery-prev>
+          <i data-lucide="chevron-left" aria-hidden="true"></i>
+        </button>
+        <figure>
+          <img src="" alt="" data-gallery-image />
+          <figcaption data-gallery-caption></figcaption>
+        </figure>
+        <button class="gallery-nav gallery-next" type="button" aria-label="Imagen siguiente" data-gallery-next>
+          <i data-lucide="chevron-right" aria-hidden="true"></i>
+        </button>
+      </div>
+      <div class="gallery-thumbs" data-gallery-thumbs aria-label="Miniaturas de la galería"></div>
+    </dialog>
+  </body>
+</html>
