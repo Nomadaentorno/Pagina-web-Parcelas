@@ -1,7 +1,6 @@
 const header = document.querySelector("[data-header]");
 const zoneFilter = document.querySelector("#zoneFilter");
 const budgetFilter = document.querySelector("#budgetFilter");
-const useFilter = document.querySelector("#useFilter");
 const listingGrid = document.querySelector("#listingGrid");
 const filterButtons = document.querySelectorAll("[data-filter]");
 const modal = document.querySelector("#parcelModal");
@@ -76,14 +75,12 @@ const openGallery = (button) => {
 const filterListings = () => {
   const zone = zoneFilter.value;
   const budget = budgetFilter.value;
-  const use = useFilter.value;
   const cards = listingGrid.querySelectorAll(".parcel-card");
 
   cards.forEach((card) => {
     const zoneMatches = zone === "todas" || card.dataset.zone === zone;
     const budgetMatches = budget === "todos" || card.dataset.budget.includes(budget);
-    const useMatches = use === "todos" || card.dataset.use.includes(use);
-    card.classList.toggle("is-hidden", !(zoneMatches && budgetMatches && useMatches));
+    card.classList.toggle("is-hidden", !(zoneMatches && budgetMatches));
   });
 
   filterButtons.forEach((button) => {
@@ -100,7 +97,7 @@ document.querySelector(".search-panel").addEventListener("submit", (event) => {
   document.querySelector("#parcelas").scrollIntoView({ behavior: "smooth" });
 });
 
-[zoneFilter, budgetFilter, useFilter].forEach((control) => {
+[zoneFilter, budgetFilter].forEach((control) => {
   control.addEventListener("change", filterListings);
 });
 
@@ -156,8 +153,17 @@ window.addEventListener("keydown", (event) => {
 
 document.querySelector(".contact-form").addEventListener("submit", (event) => {
   event.preventDefault();
-  formNote.textContent = "Solicitud recibida. Te contactaremos para coordinar alternativas y visita.";
-  event.currentTarget.reset();
+  const formData = new FormData(event.currentTarget);
+  const message = [
+    "Hola Diego, quiero recibir información de parcelas.",
+    `Nombre: ${formData.get("name")}`,
+    `Teléfono: ${formData.get("phone")}`,
+    `Región de interés: ${formData.get("zone")}`,
+    `Mensaje: ${formData.get("message") || "Sin mensaje adicional"}`,
+  ].join("\n");
+
+  window.open(`https://wa.me/56962492363?text=${encodeURIComponent(message)}`, "_blank", "noopener");
+  formNote.textContent = "Se abrió WhatsApp para enviar tu solicitud.";
 });
 
 window.addEventListener("load", syncIcons);

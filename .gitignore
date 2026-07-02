@@ -1,0 +1,5 @@
+*.log
+preview-*.png
+*.bat
+live-preview.cjs
+preview-screenshot.cjs

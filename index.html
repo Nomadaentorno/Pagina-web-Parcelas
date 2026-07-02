@@ -38,7 +38,7 @@
 
     <main>
       <section class="hero" id="inicio" aria-labelledby="hero-title">
-        <div class="hero-bg" role="img" aria-label="Vista aérea de campos y parcelas rurales"></div>
+        <div class="hero-bg" role="img" aria-label="Vista aérea del proyecto El Dorado"></div>
         <div class="hero-overlay"></div>
 
         <div class="hero-content">
@@ -50,33 +50,23 @@
 
           <form class="search-panel" aria-label="Buscar parcelas">
             <label>
-              <span>Zona</span>
+              <span>Región</span>
               <select id="zoneFilter">
-                <option value="todas">Todas las zonas</option>
-                <option value="sur">Sur</option>
-                <option value="centro">Centro</option>
-                <option value="costa">Costa</option>
+                <option value="todas">Todas las regiones</option>
+                <option value="biobio">Región del Biobío</option>
+                <option value="nuble">Región del Ñuble</option>
               </select>
             </label>
             <label>
               <span>Presupuesto</span>
               <select id="budgetFilter">
                 <option value="todos">Todos</option>
-                <option value="hasta-12m">Hasta $12.000.000</option>
-                <option value="12m-16m">$12.000.000 a $16.000.000</option>
-                <option value="sobre-20m">Sobre $20.000.000</option>
-                <option value="30m-40m">$30.000.000 a $40.000.000</option>
+                <option value="hasta-10m">Hasta $10.000.000</option>
+                <option value="10m-15m">De $10.000.000 a $15.000.000</option>
+                <option value="15m-20m">De $15.000.000 a $20.000.000</option>
+                <option value="20m-30m">De $20.000.000 a $30.000.000</option>
+                <option value="30m-40m">De $30.000.000 a $40.000.000</option>
                 <option value="sobre-40m">Sobre $40.000.000</option>
-                <option value="financiamiento">Con financiamiento directo</option>
-              </select>
-            </label>
-            <label>
-              <span>Uso esperado</span>
-              <select id="useFilter">
-                <option value="todos">Todos</option>
-                <option value="vivir">Vivir</option>
-                <option value="inversion">Inversión</option>
-                <option value="descanso">Descanso</option>
               </select>
             </label>
             <button type="submit">
@@ -85,21 +75,6 @@
             </button>
           </form>
         </div>
-
-        <aside class="hero-strip" aria-label="Resumen de plataforma">
-          <div>
-            <strong>34</strong>
-            <span>unidades del proyecto</span>
-          </div>
-          <div>
-            <strong>7.000 m2</strong>
-            <span>superficie desde</span>
-          </div>
-          <div>
-            <strong>15 m</strong>
-            <span>factibilidad de agua</span>
-          </div>
-        </aside>
       </section>
 
       <section class="section intro-band" aria-label="Servicios clave">
@@ -137,9 +112,8 @@
           <aside class="filters" aria-label="Filtros rápidos">
             <h3>Filtros</h3>
             <button class="filter-chip active" type="button" data-filter="todas">Todas</button>
-            <button class="filter-chip" type="button" data-filter="sur">Sur</button>
-            <button class="filter-chip" type="button" data-filter="centro">Centro</button>
-            <button class="filter-chip" type="button" data-filter="costa">Costa</button>
+            <button class="filter-chip" type="button" data-filter="biobio">Biobío</button>
+            <button class="filter-chip" type="button" data-filter="nuble">Ñuble</button>
             <div class="map-preview" aria-label="Mapa referencial de proyectos">
               <a
                 class="pin pin-a map-pin-link"
@@ -151,11 +125,11 @@
               ></a>
               <a
                 class="pin pin-b map-pin-link"
-                href="https://maps.app.goo.gl/raehdrZzeRTTJtsU7"
+                href="https://maps.app.goo.gl/JPsC493TuRmrfsYB8"
                 target="_blank"
                 rel="noopener"
-                aria-label="Abrir ubicación referencial de Bordevista en Google Maps"
-                title="Bordevista"
+                aria-label="Abrir ubicación referencial de Valle San Andrés en Google Maps"
+                title="Valle San Andrés"
               ></a>
               <a
                 class="pin pin-c map-pin-link"
@@ -181,12 +155,20 @@
                 aria-label="Abrir ubicación de Altos de Nahuelcura en Google Maps"
                 title="Altos de Nahuelcura"
               ></a>
+              <a
+                class="pin pin-f map-pin-link"
+                href="https://maps.app.goo.gl/41GmMw2fnq2jbrrB9"
+                target="_blank"
+                rel="noopener"
+                aria-label="Abrir ubicación de Verde Pradera en Google Maps"
+                title="Verde Pradera"
+              ></a>
             </div>
             <p>Ubicaciones clickeables para revisar cada proyecto directamente en Google Maps.</p>
           </aside>
 
           <div class="listing-grid" id="listingGrid">
-            <article class="parcel-card featured-project-card" data-zone="sur" data-budget="12m-16m financiamiento hasta-12m" data-use="vivir inversion descanso">
+            <article class="parcel-card featured-project-card" data-zone="biobio" data-budget="10m-15m 15m-20m">
               <div class="project-gallery-placeholder rich-gallery" aria-label="Galería de imágenes del proyecto Riberas de Antuco">
                 <button
                   class="gallery-expand"
@@ -236,7 +218,6 @@
               <div class="parcel-body">
                 <div class="parcel-top">
                   <span>Sector Antuco, Región del Biobío</span>
-                  <strong>Desde $15.990.000</strong>
                 </div>
                 <h3>Riberas de Antuco</h3>
                 <p>
@@ -244,8 +225,9 @@
                   vista privilegiada al Volcán Antuco y cercanía al río Laja.
                 </p>
                 <div class="price-strip">
-                  <span>Contado desde <strong>$11.990.000</strong></span>
-                  <span>Pie desde <strong>$4.990.000</strong></span>
+                  <span>Desde <strong>$13.990.000</strong></span>
+                  <span>Saldo hasta en <strong>36 cuotas</strong></span>
+                  <span>Pie mínimo <strong>$10.000.000</strong></span>
                 </div>
                 <ul class="project-benefits">
                   <li><i data-lucide="ruler" aria-hidden="true"></i> Parcelas desde 7.000 m2</li>
@@ -268,52 +250,78 @@
                     class="ghost-button"
                     type="button"
                     data-open-modal="Riberas de Antuco"
-                    data-modal-description="Proyecto de 34 unidades en Sector Antuco, con parcelas desde 7.000 m2, acceso asfaltado, caminos interiores estabilizados, portón de acceso, vista al Volcán Antuco y cercanía al río Laja."
+                    data-modal-description="Proyecto de 34 unidades en Sector Antuco, con parcelas desde 7.000 m2, acceso asfaltado, caminos interiores estabilizados, portón de acceso, vista al Volcán Antuco y cercanía al río Laja. Valores desde $13.990.000, pie mínimo de $10.000.000 y saldo hasta en 36 cuotas."
                   >
-                    Ver detalle
+                    Ver masterplan
                   </button>
                 </div>
               </div>
             </article>
 
-            <article class="parcel-card featured-project-card" data-zone="sur" data-budget="sobre-20m financiamiento 12m-16m" data-use="vivir inversion descanso">
-              <div class="project-gallery-placeholder" aria-label="Espacios reservados para imágenes del proyecto Bordevista en formato webp">
-                <div class="project-image-slot main-slot" data-image-src="imagenes/bordevista-1.webp">
-                  <span>bordevista-1.webp</span>
+            <article class="parcel-card featured-project-card" data-zone="nuble" data-budget="20m-30m 30m-40m sobre-40m">
+              <div class="project-gallery-placeholder rich-gallery" aria-label="Galería de imágenes del proyecto Valle San Andrés">
+                <button
+                  class="gallery-expand"
+                  type="button"
+                  data-open-gallery="Valle San Andrés"
+                  aria-label="Ampliar galería de Valle San Andrés"
+                >
+                  <i data-lucide="maximize-2" aria-hidden="true"></i>
+                </button>
+                <div class="project-image-slot main-slot" data-image-src="imagenes/valle-san-andres-1.webp">
+                  <span>valle-san-andres-1.webp</span>
                 </div>
-                <div class="project-image-slot" data-image-src="imagenes/bordevista-2.webp">
-                  <span>bordevista-2.webp</span>
+                <div class="project-image-slot" data-image-src="imagenes/valle-san-andres-2.webp">
+                  <span>valle-san-andres-2.webp</span>
                 </div>
-                <div class="project-image-slot" data-image-src="imagenes/bordevista-3.webp">
-                  <span>bordevista-3.webp</span>
+                <div class="project-image-slot" data-image-src="imagenes/valle-san-andres-3.webp">
+                  <span>valle-san-andres-3.webp</span>
+                </div>
+                <div class="project-image-slot gallery-only" data-image-src="imagenes/valle-san-andres-4.webp">
+                  <span>valle-san-andres-4.webp</span>
+                </div>
+                <div class="project-image-slot gallery-only" data-image-src="imagenes/valle-san-andres-5.webp">
+                  <span>valle-san-andres-5.webp</span>
+                </div>
+                <div class="project-image-slot gallery-only" data-image-src="imagenes/valle-san-andres-6.webp">
+                  <span>valle-san-andres-6.webp</span>
+                </div>
+                <div class="project-image-slot gallery-only" data-image-src="imagenes/valle-san-andres-7.webp">
+                  <span>valle-san-andres-7.webp</span>
+                </div>
+                <div class="project-image-slot gallery-only" data-image-src="imagenes/valle-san-andres-8.webp">
+                  <span>valle-san-andres-8.webp</span>
+                </div>
+                <div class="project-image-slot gallery-only" data-image-src="imagenes/valle-san-andres-9.webp">
+                  <span>valle-san-andres-9.webp</span>
                 </div>
               </div>
               <div class="parcel-body">
                 <div class="parcel-top">
-                  <span>Sector Chancal, Quillón</span>
-                  <strong>Desde $20.990.000</strong>
+                  <span>A 5 minutos del peaje Huinanco</span>
                 </div>
-                <h3>Bordevista</h3>
+                <h3>Valle San Andrés</h3>
                 <p>
-                  Proyecto exclusivo de solo 11 parcelas de 5.000 m2, ubicado en Sector Chancal, Quillón,
-                  a solo 1 hora de Concepción, con bosque nativo, excelente conectividad y entorno natural.
+                  Parcelas de 5.000 m2 desde $29.990.000, alternativa PC40 de 7.000 m2 y opción en orilla de carretera.
+                  Proyecto con rol propio aprobado por SAG, acceso privado y factibilidades cercanas.
                 </p>
                 <div class="price-strip">
-                  <span>Contado desde <strong>$14.990.000</strong></span>
-                  <span>Pie desde <strong>$4.990.000</strong></span>
+                  <span>Desde <strong>$29.990.000</strong></span>
+                  <span>Saldo hasta en <strong>60 cuotas</strong></span>
+                  <span>Pie mínimo <strong>$9.990.000</strong></span>
                 </div>
                 <ul class="project-benefits">
+                  <li><i data-lucide="ruler" aria-hidden="true"></i> Parcelas de 5.000 m2</li>
                   <li><i data-lucide="badge-check" aria-hidden="true"></i> Rol propio aprobado por SAG</li>
-                  <li><i data-lucide="droplets" aria-hidden="true"></i> Factibilidad de agua entre 11 y 15 metros</li>
-                  <li><i data-lucide="plug" aria-hidden="true"></i> Factibilidad eléctrica con COELCHA</li>
-                  <li><i data-lucide="trees" aria-hidden="true"></i> Bosque nativo y entorno natural</li>
-                  <li><i data-lucide="shield-check" aria-hidden="true"></i> 2 portones de acceso</li>
-                  <li><i data-lucide="route" aria-hidden="true"></i> Caminos interiores estabilizados</li>
+                  <li><i data-lucide="door-open" aria-hidden="true"></i> Portón de acceso privado</li>
+                  <li><i data-lucide="plug" aria-hidden="true"></i> Luz a menos de 100 metros</li>
+                  <li><i data-lucide="droplets" aria-hidden="true"></i> Agua desde napas de 15 a 35 metros</li>
+                  <li><i data-lucide="route" aria-hidden="true"></i> Opción en orilla de carretera</li>
                 </ul>
                 <div class="project-actions">
                   <a
                     class="ghost-button"
-                    href="https://maps.app.goo.gl/raehdrZzeRTTJtsU7"
+                    href="https://maps.app.goo.gl/JPsC493TuRmrfsYB8"
                     target="_blank"
                     rel="noopener"
                   >
@@ -322,31 +330,149 @@
                   <button
                     class="ghost-button"
                     type="button"
-                    data-open-modal="Bordevista"
-                    data-modal-description="Proyecto de 11 parcelas de 5.000 m2 en Sector Chancal, Quillón, a solo 1 hora de Concepción, con rol propio aprobado por SAG, factibilidad de agua entre 11 y 15 metros, factibilidad eléctrica con COELCHA, caminos estabilizados y 2 portones de acceso."
+                    data-open-modal="Valle San Andrés"
+                    data-modal-description="Proyecto a 5 minutos del peaje Huinanco, con parcelas de 5.000 m2 desde $29.990.000, alternativa PC40 de 7.000 m2 a $39.990.000 y opción en orilla de carretera a $51.990.000. Pie mínimo de $9.990.000 y saldo hasta en 60 cuotas. Cuenta con rol propio aprobado por SAG, portón de acceso privado, luz a menos de 100 metros y agua desde napas de 15 a 35 metros."
                   >
-                    Ver detalle
+                    Ver masterplan
                   </button>
                 </div>
               </div>
             </article>
 
-            <article class="parcel-card featured-project-card premium-project-card" data-zone="sur" data-budget="sobre-40m financiamiento" data-use="vivir inversion descanso">
-              <div class="project-gallery-placeholder" aria-label="Espacios reservados para imágenes del proyecto El Dorado en formato webp">
-                <div class="project-image-slot main-slot" data-image-src="imagenes/el-dorado-1.webp">
-                  <span>el-dorado-1.webp</span>
+            <article class="parcel-card featured-project-card" data-zone="nuble" data-budget="20m-30m">
+              <div class="project-gallery-placeholder rich-gallery" aria-label="Galería de imágenes del proyecto Verde Pradera">
+                <button
+                  class="gallery-expand"
+                  type="button"
+                  data-open-gallery="Verde Pradera"
+                  aria-label="Ampliar galería de Verde Pradera"
+                >
+                  <i data-lucide="maximize-2" aria-hidden="true"></i>
+                </button>
+                <div class="project-image-slot main-slot" data-image-src="imagenes/verde-pradera-8.webp">
+                  <span>verde-pradera-8.webp</span>
                 </div>
-                <div class="project-image-slot" data-image-src="imagenes/el-dorado-2.webp">
-                  <span>el-dorado-2.webp</span>
+                <div class="project-image-slot" data-image-src="imagenes/verde-pradera-12.webp">
+                  <span>verde-pradera-12.webp</span>
                 </div>
-                <div class="project-image-slot" data-image-src="imagenes/el-dorado-3.webp">
-                  <span>el-dorado-3.webp</span>
+                <div class="project-image-slot" data-image-src="imagenes/verde-pradera-7.webp">
+                  <span>verde-pradera-7.webp</span>
+                </div>
+                <div class="project-image-slot gallery-only" data-image-src="imagenes/verde-pradera-1.webp">
+                  <span>verde-pradera-1.webp</span>
+                </div>
+                <div class="project-image-slot gallery-only" data-image-src="imagenes/verde-pradera-2.webp">
+                  <span>verde-pradera-2.webp</span>
+                </div>
+                <div class="project-image-slot gallery-only" data-image-src="imagenes/verde-pradera-3.webp">
+                  <span>verde-pradera-3.webp</span>
+                </div>
+                <div class="project-image-slot gallery-only" data-image-src="imagenes/verde-pradera-4.webp">
+                  <span>verde-pradera-4.webp</span>
+                </div>
+                <div class="project-image-slot gallery-only" data-image-src="imagenes/verde-pradera-5.webp">
+                  <span>verde-pradera-5.webp</span>
+                </div>
+                <div class="project-image-slot gallery-only" data-image-src="imagenes/verde-pradera-6.webp">
+                  <span>verde-pradera-6.webp</span>
+                </div>
+                <div class="project-image-slot gallery-only" data-image-src="imagenes/verde-pradera-9.webp">
+                  <span>verde-pradera-9.webp</span>
+                </div>
+                <div class="project-image-slot gallery-only" data-image-src="imagenes/verde-pradera-10.webp">
+                  <span>verde-pradera-10.webp</span>
+                </div>
+                <div class="project-image-slot gallery-only" data-image-src="imagenes/verde-pradera-11.webp">
+                  <span>verde-pradera-11.webp</span>
                 </div>
               </div>
               <div class="parcel-body">
                 <div class="parcel-top">
-                  <span>Ubicación por confirmar</span>
-                  <strong>Contado desde $42.990.000</strong>
+                  <span>Con salida al Río Perquilauquén</span>
+                </div>
+                <h3>Verde Pradera</h3>
+                <p>
+                  Parcelas desde $22.990.000 hasta $25.990.000, con salida al Río Perquilauquén,
+                  rol propio aprobado por SAG, acceso privado y área común con invernadero.
+                </p>
+                <div class="price-strip">
+                  <span>Desde <strong>$22.990.000</strong></span>
+                  <span>Saldo hasta en <strong>60 cuotas</strong></span>
+                  <span>Pie mínimo <strong>$3.990.000</strong></span>
+                </div>
+                <ul class="project-benefits">
+                  <li><i data-lucide="badge-check" aria-hidden="true"></i> Rol propio aprobado por SAG</li>
+                  <li><i data-lucide="door-open" aria-hidden="true"></i> Portón de acceso privado</li>
+                  <li><i data-lucide="plug" aria-hidden="true"></i> Luz a solo 10 metros</li>
+                  <li><i data-lucide="droplets" aria-hidden="true"></i> Agua desde napas de 5 metros</li>
+                  <li><i data-lucide="sprout" aria-hidden="true"></i> Área común con invernadero</li>
+                  <li><i data-lucide="waves" aria-hidden="true"></i> Salida al Río Perquilauquén</li>
+                </ul>
+                <div class="project-actions">
+                  <a
+                    class="ghost-button"
+                    href="https://maps.app.goo.gl/41GmMw2fnq2jbrrB9"
+                    target="_blank"
+                    rel="noopener"
+                  >
+                    Ver ubicación
+                  </a>
+                  <button
+                    class="ghost-button"
+                    type="button"
+                    data-open-modal="Verde Pradera"
+                    data-modal-description="Proyecto con salida al Río Perquilauquén, valores desde $22.990.000 hasta $25.990.000, pie mínimo de $3.990.000 y saldo hasta en 60 cuotas. Cuenta con rol propio aprobado por SAG, portón de acceso privado, luz a solo 10 metros, agua desde napas de 5 metros y área común con invernadero."
+                  >
+                    Ver masterplan
+                  </button>
+                </div>
+              </div>
+            </article>
+
+            <article class="parcel-card featured-project-card premium-project-card" data-zone="biobio" data-budget="sobre-40m">
+              <div class="project-gallery-placeholder rich-gallery el-dorado-gallery" aria-label="Galería de imágenes del proyecto El Dorado">
+                <button
+                  class="gallery-expand"
+                  type="button"
+                  data-open-gallery="El Dorado"
+                  aria-label="Ampliar galería de El Dorado"
+                >
+                  <i data-lucide="maximize-2" aria-hidden="true"></i>
+                </button>
+                <div class="project-image-slot main-slot" data-image-src="imagenes/el-dorado-5.webp">
+                  <span>el-dorado-5.webp</span>
+                </div>
+                <div class="project-image-slot" data-image-src="imagenes/el-dorado-7.webp">
+                  <span>el-dorado-7.webp</span>
+                </div>
+                <div class="project-image-slot" data-image-src="imagenes/el-dorado-8.webp">
+                  <span>el-dorado-8.webp</span>
+                </div>
+                <div class="project-image-slot gallery-only" data-image-src="imagenes/el-dorado-4.webp">
+                  <span>el-dorado-4.webp</span>
+                </div>
+                <div class="project-image-slot gallery-only" data-image-src="imagenes/el-dorado-6.webp">
+                  <span>el-dorado-6.webp</span>
+                </div>
+                <div class="project-image-slot gallery-only" data-image-src="imagenes/el-dorado-1.webp">
+                  <span>el-dorado-1.webp</span>
+                </div>
+                <div class="project-image-slot gallery-only" data-image-src="imagenes/el-dorado-2.webp">
+                  <span>el-dorado-2.webp</span>
+                </div>
+                <div class="project-image-slot gallery-only" data-image-src="imagenes/el-dorado-3.webp">
+                  <span>el-dorado-3.webp</span>
+                </div>
+                <div class="project-image-slot gallery-only" data-image-src="imagenes/el-dorado-9.webp">
+                  <span>el-dorado-9.webp</span>
+                </div>
+                <div class="project-image-slot gallery-only" data-image-src="imagenes/el-dorado-10.webp">
+                  <span>el-dorado-10.webp</span>
+                </div>
+              </div>
+              <div class="parcel-body">
+                <div class="parcel-top">
+                  <span>Región del Biobío</span>
                 </div>
                 <h3>El Dorado</h3>
                 <p>
@@ -354,8 +480,9 @@
                   pinos y álamos, caminos estabilizados y pórtico de acceso.
                 </p>
                 <div class="price-strip">
-                  <span>Pie desde <strong>$19.990.000</strong></span>
-                  <span>Saldo hasta <strong>36 cuotas</strong></span>
+                  <span>Desde <strong>$42.990.000</strong></span>
+                  <span>Saldo hasta en <strong>36 cuotas</strong></span>
+                  <span>Pie mínimo <strong>$20.000.000</strong></span>
                 </div>
                 <ul class="project-benefits">
                   <li><i data-lucide="ruler" aria-hidden="true"></i> Macro lotes desde 1,5 hectáreas</li>
@@ -378,30 +505,49 @@
                     class="ghost-button"
                     type="button"
                     data-open-modal="El Dorado"
-                    data-modal-description="Macro lotes desde 1,5 hectáreas con cierre perimetral, caminos estabilizados, pórtico de acceso, parcelas planas con lomaje suave, pinos y álamos. Cuenta con zona común, laguna navegable de 3.500 m2, cancha de futbolito, agua desde 10 a 15 metros y postación aérea incluida con empalme COELCHA."
+                    data-modal-description="Macro lotes desde 1,5 hectáreas con cierre perimetral, caminos estabilizados, pórtico de acceso, parcelas planas con lomaje suave, pinos y álamos. Cuenta con zona común, laguna navegable de 3.500 m2, cancha de futbolito, agua desde 10 a 15 metros y postación aérea incluida con empalme COELCHA. Valores desde $42.990.000, pie mínimo de $20.000.000 y saldo hasta en 36 cuotas."
                   >
-                    Ver detalle
+                    Ver masterplan
                   </button>
                 </div>
               </div>
             </article>
 
-            <article class="parcel-card featured-project-card premium-project-card" data-zone="sur" data-budget="30m-40m sobre-40m financiamiento" data-use="vivir inversion descanso">
-              <div class="project-gallery-placeholder" aria-label="Espacios reservados para imágenes del proyecto Estancia Victoria en formato webp">
-                <div class="project-image-slot main-slot" data-image-src="imagenes/estancia-victoria-1.webp">
-                  <span>estancia-victoria-1.webp</span>
+            <article class="parcel-card featured-project-card premium-project-card" data-zone="biobio" data-budget="30m-40m sobre-40m">
+              <div class="project-gallery-placeholder rich-gallery estancia-gallery" aria-label="Galería de imágenes del proyecto Estancia Victoria">
+                <button
+                  class="gallery-expand"
+                  type="button"
+                  data-open-gallery="Estancia Victoria"
+                  aria-label="Ampliar galería de Estancia Victoria"
+                >
+                  <i data-lucide="maximize-2" aria-hidden="true"></i>
+                </button>
+                <div class="project-image-slot main-slot estancia-cover" data-image-src="imagenes/estancia-victoria-4.webp">
+                  <span>estancia-victoria-4.webp</span>
                 </div>
-                <div class="project-image-slot" data-image-src="imagenes/estancia-victoria-2.webp">
+                <div class="project-image-slot estancia-thumb-sign" data-image-src="imagenes/estancia-victoria-2.webp">
                   <span>estancia-victoria-2.webp</span>
                 </div>
-                <div class="project-image-slot" data-image-src="imagenes/estancia-victoria-3.webp">
+                <div class="project-image-slot estancia-thumb-gate" data-image-src="imagenes/estancia-victoria-3.webp">
                   <span>estancia-victoria-3.webp</span>
+                </div>
+                <div class="project-image-slot gallery-only" data-image-src="imagenes/estancia-victoria-1.webp">
+                  <span>estancia-victoria-1.webp</span>
+                </div>
+                <div class="project-image-slot gallery-only" data-image-src="imagenes/estancia-victoria-5.webp">
+                  <span>estancia-victoria-5.webp</span>
+                </div>
+                <div class="project-image-slot gallery-only" data-image-src="imagenes/estancia-victoria-6.webp">
+                  <span>estancia-victoria-6.webp</span>
+                </div>
+                <div class="project-image-slot gallery-only" data-image-src="imagenes/estancia-victoria-7.webp">
+                  <span>estancia-victoria-7.webp</span>
                 </div>
               </div>
               <div class="parcel-body">
                 <div class="parcel-top">
                   <span>Cayanco, a 20 min de Los Ángeles</span>
-                  <strong>Desde $37.900.000</strong>
                 </div>
                 <h3>Estancia Victoria</h3>
                 <p>
@@ -409,8 +555,9 @@
                   con rol propio aprobado por SAG, caminos estabilizados y acceso con pórtico eléctrico.
                 </p>
                 <div class="price-strip">
-                  <span>Hasta <strong>$43.900.000</strong></span>
-                  <span>Pie desde <strong>$19.990.000</strong></span>
+                  <span>Desde <strong>$37.900.000</strong></span>
+                  <span>Saldo hasta en <strong>48 cuotas</strong></span>
+                  <span>Pie mínimo <strong>$9.990.000</strong></span>
                 </div>
                 <ul class="project-benefits">
                   <li><i data-lucide="ruler" aria-hidden="true"></i> Parcelas planas de 5.000 m2</li>
@@ -433,16 +580,24 @@
                     class="ghost-button"
                     type="button"
                     data-open-modal="Estancia Victoria"
-                    data-modal-description="Parcelas de 5.000 m2, 100% planas y listas para construir en Cayanco, a 20 minutos de Los Ángeles por Ruta 180. Valores desde $37.900.000 hasta $43.900.000, pie desde $19.990.000, hasta 24 cuotas sin interés en UF o hasta 48 cuotas fijas en pesos. Incluye rol propio aprobado por SAG, pórtico eléctrico, acceso peatonal, caminos estabilizados, agua por pozo o puntera e iluminación solar en servidumbre."
+                    data-modal-description="Parcelas de 5.000 m2, 100% planas y listas para construir en Cayanco, a 20 minutos de Los Ángeles por Ruta 180. Valores desde $37.900.000, pie mínimo de $9.990.000 y saldo hasta en 48 cuotas. Incluye rol propio aprobado por SAG, pórtico eléctrico, acceso peatonal, caminos estabilizados, agua por pozo o puntera e iluminación solar en servidumbre."
                   >
-                    Ver detalle
+                    Ver masterplan
                   </button>
                 </div>
               </div>
             </article>
 
-            <article class="parcel-card featured-project-card" data-zone="sur" data-budget="sobre-20m financiamiento" data-use="vivir inversion descanso">
-              <div class="project-gallery-placeholder" aria-label="Espacios reservados para imágenes del proyecto Altos de Nahuelcura en formato webp">
+            <article class="parcel-card featured-project-card" data-zone="biobio" data-budget="15m-20m 20m-30m">
+              <div class="project-gallery-placeholder rich-gallery" aria-label="Galería de imágenes del proyecto Altos de Nahuelcura">
+                <button
+                  class="gallery-expand"
+                  type="button"
+                  data-open-gallery="Altos de Nahuelcura"
+                  aria-label="Ampliar galería de Altos de Nahuelcura"
+                >
+                  <i data-lucide="maximize-2" aria-hidden="true"></i>
+                </button>
                 <div class="project-image-slot main-slot" data-image-src="imagenes/altos-de-nahuelcura-1.webp">
                   <span>altos-de-nahuelcura-1.webp</span>
                 </div>
@@ -452,11 +607,16 @@
                 <div class="project-image-slot" data-image-src="imagenes/altos-de-nahuelcura-3.webp">
                   <span>altos-de-nahuelcura-3.webp</span>
                 </div>
+                <div class="project-image-slot gallery-only" data-image-src="imagenes/altos-de-nahuelcura-4.webp">
+                  <span>altos-de-nahuelcura-4.webp</span>
+                </div>
+                <div class="project-image-slot gallery-only" data-image-src="imagenes/altos-de-nahuelcura-5.webp">
+                  <span>altos-de-nahuelcura-5.webp</span>
+                </div>
               </div>
               <div class="parcel-body">
                 <div class="parcel-top">
                   <span>A 40 min de Concepción y 30 min de Yumbel</span>
-                  <strong>Desde $19.990.000</strong>
                 </div>
                 <h3>Altos de Nahuelcura</h3>
                 <p>
@@ -464,8 +624,9 @@
                   pórtico de acceso y factibilidades listas para proyectar vivienda, descanso o inversión.
                 </p>
                 <div class="price-strip">
-                  <span>Hasta <strong>$25.990.000</strong></span>
-                  <span>Pie desde <strong>$4.990.000</strong></span>
+                  <span>Desde <strong>$19.990.000</strong></span>
+                  <span>Saldo hasta en <strong>60 cuotas</strong></span>
+                  <span>Pie mínimo <strong>$10.000.000</strong></span>
                 </div>
                 <ul class="project-benefits">
                   <li><i data-lucide="badge-check" aria-hidden="true"></i> Rol propio aprobado por SAG</li>
@@ -488,9 +649,9 @@
                     class="ghost-button"
                     type="button"
                     data-open-modal="Altos de Nahuelcura"
-                    data-modal-description="Proyecto a 40 minutos de Concepción y 30 minutos de Yumbel, con valores desde $19.990.000 hasta $25.990.000 y financiamiento directo con pie desde $4.990.000. Cuenta con rol propio aprobado por SAG, factibilidad de agua desde 8 metros, factibilidad eléctrica, pórtico de acceso, deslindes cercados, parcelas planas con lomaje suave y vegetación nativa."
+                    data-modal-description="Proyecto a 40 minutos de Concepción y 30 minutos de Yumbel, con valores desde $19.990.000, pie mínimo de $10.000.000 y saldo hasta en 60 cuotas. Cuenta con rol propio aprobado por SAG, factibilidad de agua desde 8 metros, factibilidad eléctrica, pórtico de acceso, deslindes cercados, parcelas planas con lomaje suave y vegetación nativa."
                   >
-                    Ver detalle
+                    Ver masterplan
                   </button>
                 </div>
               </div>
@@ -508,7 +669,7 @@
           <article>
             <span>01</span>
             <h3>Elige y compara</h3>
-            <p>Revisa proyectos por zona, precio, superficie, conectividad y potencial de uso.</p>
+            <p>Revisa proyectos por región, precio, superficie, conectividad y potencial de inversión.</p>
           </article>
           <article>
             <span>02</span>
@@ -531,24 +692,23 @@
       <section class="investment" id="inversion">
         <div class="investment-media"></div>
         <div class="investment-content">
-          <p class="eyebrow">Decisión informada</p>
-          <h2>Evalúa plusvalía, conectividad y uso futuro antes de comprar</h2>
+          <p class="eyebrow">Financiamiento directo</p>
+          <h2>Obtén tu parcela dando un pie y dividiendo el resto en el número de cuotas que más te acomoden</h2>
           <p>
-            Cada proyecto se presenta con información comercial clara y criterios de revisión para que puedas decidir con calma:
-            accesos, cercanía a servicios, normativa, entorno y opciones de pago.
+            No requiere evaluación crediticia ni la intermediación de bancos, solamente la cédula de identidad y no tener deudas pendientes de pensión alimenticia, escríbeme y simula tu pago en cuotas sin compromiso.
           </p>
           <div class="metrics">
             <div>
-              <strong>$11.990.000</strong>
-              <span>oportunidad contado</span>
+              <i data-lucide="shield-check" aria-hidden="true"></i>
+              <strong>Seguridad jurídica</strong>
             </div>
             <div>
-              <strong>7.000 m2</strong>
-              <span>parcelas desde</span>
+              <i data-lucide="scale" aria-hidden="true"></i>
+              <strong>Acompañamiento legal</strong>
             </div>
             <div>
-              <strong>$4.990.000</strong>
-              <span>pie financiamiento</span>
+              <i data-lucide="trending-up" aria-hidden="true"></i>
+              <strong>Rentabilidad garantizada</strong>
             </div>
           </div>
         </div>
@@ -580,7 +740,7 @@
           <p class="eyebrow">Hablemos de tu búsqueda</p>
           <h2>Recibe una selección de parcelas según tu presupuesto</h2>
           <p>
-            Cuéntanos zona, objetivo y rango de inversión. Un asesor te enviará alternativas disponibles y horarios de visita.
+            Cuéntame región, objetivo y rango de inversión y te enviaré alternativas disponibles y horarios de visita.
           </p>
         </div>
         <form class="contact-form">
@@ -593,12 +753,11 @@
             <input type="tel" name="phone" placeholder="+56 9 1234 5678" required />
           </label>
           <label>
-            <span>Zona de interés</span>
+            <span>Región de interés</span>
             <select name="zone" required>
-              <option value="">Selecciona una zona</option>
-              <option>Sur</option>
-              <option>Centro</option>
-              <option>Costa</option>
+              <option value="">Selecciona una región</option>
+              <option>Región del Biobío</option>
+              <option>Región del Ñuble</option>
               <option>Aún no lo sé</option>
             </select>
           </label>

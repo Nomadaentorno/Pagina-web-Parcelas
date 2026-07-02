@@ -196,9 +196,9 @@ button svg,
 }
 
 .hero-bg {
-  background-image: url("https://images.unsplash.com/photo-1515023115689-589c33041d3c?auto=format&fit=crop&w=2200&q=85");
+  background-image: url("imagenes/el-dorado-3.webp");
   background-size: cover;
-  background-position: center;
+  background-position: center 42%;
   transform: scale(1.04);
   filter: saturate(1.06) contrast(1.04);
 }
@@ -222,7 +222,7 @@ button svg,
   position: relative;
   z-index: 1;
   max-width: 1040px;
-  padding-bottom: 112px;
+  padding-bottom: 72px;
 }
 
 .eyebrow {
@@ -287,7 +287,7 @@ h3 {
 
 .search-panel {
   display: grid;
-  grid-template-columns: repeat(3, minmax(150px, 1fr)) auto;
+  grid-template-columns: repeat(2, minmax(190px, 1fr)) auto;
   gap: 10px;
   width: min(100%, 980px);
   margin-top: 34px;
@@ -567,6 +567,11 @@ h3 {
   top: 58%;
 }
 
+.pin-f {
+  left: 82%;
+  top: 64%;
+}
+
 .map-pin-link {
   display: block;
   transition: transform 160ms ease, box-shadow 160ms ease;
@@ -685,8 +690,9 @@ h3 {
 }
 
 .project-gallery-placeholder.rich-gallery {
-  grid-template-columns: 1.35fr 1fr;
-  grid-template-rows: repeat(2, minmax(170px, 1fr));
+  align-content: start;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(3, minmax(0, 1fr));
   max-height: none;
   overflow: hidden;
 }
@@ -727,12 +733,35 @@ h3 {
 }
 
 .rich-gallery .project-image-slot.main-slot {
-  grid-row: 1 / -1;
-  min-height: 350px;
+  grid-row: auto;
+  min-height: 0;
+}
+
+.estancia-gallery .estancia-cover {
+  background-position: 68% center;
+}
+
+.estancia-gallery .estancia-thumb-sign {
+  background-position: center 58%;
+}
+
+.estancia-gallery .estancia-thumb-gate {
+  background-position: 64% center;
 }
 
 .project-image-slot.gallery-only {
   display: none;
+}
+
+.rich-gallery .project-image-slot {
+  min-height: 0;
+}
+
+.rich-gallery .project-image-slot.has-image {
+  background-color: rgba(17, 55, 42, 0.78);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100% auto;
 }
 
 .project-image-slot.has-image {
@@ -790,7 +819,7 @@ h3 {
 
 .price-strip {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 10px;
   margin: 20px 0 4px;
 }
@@ -808,7 +837,7 @@ h3 {
 
 .price-strip strong {
   color: var(--forest);
-  font-size: 1.08rem;
+  font-size: clamp(0.92rem, 1.05vw, 1.08rem);
 }
 
 .project-benefits {
@@ -897,7 +926,7 @@ h3 {
 .investment-media {
   background-image:
     linear-gradient(0deg, rgba(12, 43, 34, 0.18), rgba(12, 43, 34, 0.18)),
-    url("https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=1600&q=85");
+    url("imagenes/financiamiento-estancia.webp");
   background-size: cover;
   background-position: center;
 }
@@ -930,10 +959,18 @@ h3 {
 }
 
 .metrics div {
+  display: grid;
+  gap: 10px;
   padding: 22px;
   border: 1px solid rgba(255, 255, 255, 0.16);
   border-radius: 8px;
   background: rgba(255, 255, 255, 0.08);
+}
+
+.metrics svg {
+  color: var(--copper);
+  width: 28px;
+  height: 28px;
 }
 
 .metrics strong,
@@ -943,7 +980,7 @@ h3 {
 
 .metrics strong {
   color: #fff4df;
-  font-size: 1.32rem;
+  font-size: 1.05rem;
 }
 
 .metrics span {
@@ -1205,7 +1242,7 @@ figcaption {
   }
 
   .hero-content {
-    padding-bottom: 194px;
+    padding-bottom: 84px;
   }
 
   .search-panel,
@@ -1254,6 +1291,10 @@ figcaption {
   .project-image-slot.main-slot {
     grid-row: auto;
     min-height: 220px;
+  }
+
+  .rich-gallery .project-image-slot.main-slot {
+    min-height: 0;
   }
 
   .gallery-viewer {

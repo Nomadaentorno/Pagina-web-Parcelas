@@ -1,5 +1,0 @@
-*.log
-
-preview-*.png
-
-*.bat
