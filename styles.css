@@ -1536,16 +1536,35 @@ figcaption {
     left: 10px;
     right: 10px;
     padding: 10px;
+    gap: 10px;
   }
 
-  .brand small,
-  .header-cta {
+  .brand {
+    flex: 0 0 auto;
+    padding-right: 0;
+  }
+
+  .brand strong,
+  .brand small {
     display: none;
+  }
+
+  .header-cta {
+    display: inline-flex;
+    flex: 1 1 auto;
+    min-height: 42px;
+    padding: 0 14px;
+    font-size: 0.9rem;
   }
 
   .brand-mark {
     width: 40px;
     height: 40px;
+  }
+
+  .location-list,
+  .filters > p {
+    display: none;
   }
 
   .hero {
