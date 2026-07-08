@@ -11,8 +11,16 @@ const galleryModal = document.querySelector("#galleryModal");
 const galleryImage = document.querySelector("[data-gallery-image]");
 const galleryCaption = document.querySelector("[data-gallery-caption]");
 const galleryThumbs = document.querySelector("[data-gallery-thumbs]");
+const zoomStage = document.querySelector("[data-zoom-stage]");
+const zoomControls = document.querySelectorAll("[data-zoom-action]");
 let activeGallery = [];
 let activeGalleryIndex = 0;
+let zoomState = { scale: 1, x: 0, y: 0 };
+let dragState = null;
+let pinchState = null;
+const activePointers = new Map();
+const minZoom = 1;
+const maxZoom = 4;
 
 const loadProjectImages = () => {
   document.querySelectorAll("[data-image-src]").forEach((slot) => {
@@ -35,41 +43,108 @@ const syncIcons = () => {
   }
 };
 
+const applyZoom = () => {
+  galleryImage.style.transform = `translate(${zoomState.x}px, ${zoomState.y}px) scale(${zoomState.scale})`;
+  galleryImage.style.cursor = zoomState.scale > 1 ? "grab" : "zoom-in";
+};
+
+const resetZoom = () => {
+  zoomState = { scale: 1, x: 0, y: 0 };
+  applyZoom();
+};
+
+const setZoom = (scale) => {
+  const nextScale = Math.min(maxZoom, Math.max(minZoom, scale));
+  const ratio = nextScale / zoomState.scale;
+  zoomState = {
+    scale: nextScale,
+    x: zoomState.x * ratio,
+    y: zoomState.y * ratio,
+  };
+  if (nextScale === minZoom) {
+    zoomState.x = 0;
+    zoomState.y = 0;
+  }
+  applyZoom();
+};
+
+const panZoom = (deltaX, deltaY) => {
+  if (zoomState.scale <= minZoom) return;
+  zoomState.x += deltaX;
+  zoomState.y += deltaY;
+  applyZoom();
+};
+
+const distanceBetweenPointers = () => {
+  const pointers = [...activePointers.values()];
+  if (pointers.length < 2) return 0;
+  return Math.hypot(pointers[0].x - pointers[1].x, pointers[0].y - pointers[1].y);
+};
+
 const showGalleryImage = (index) => {
   if (!activeGallery.length) return;
   activeGalleryIndex = (index + activeGallery.length) % activeGallery.length;
   const item = activeGallery[activeGalleryIndex];
   galleryImage.src = item.src;
   galleryImage.alt = item.alt;
-  galleryCaption.textContent = `${item.title} · Imagen ${activeGalleryIndex + 1} de ${activeGallery.length}`;
+  resetZoom();
+  galleryCaption.textContent =
+    item.caption || `${item.title} · Imagen ${activeGalleryIndex + 1} de ${activeGallery.length}`;
 
   galleryThumbs.querySelectorAll("button").forEach((button, buttonIndex) => {
     button.classList.toggle("active", buttonIndex === activeGalleryIndex);
   });
 };
 
+const openGalleryItems = (items, isMasterplan = false) => {
+  activeGallery = items;
+  galleryModal.classList.toggle("single-image", activeGallery.length === 1);
+  galleryModal.classList.toggle("masterplan-view", isMasterplan);
+
+  galleryThumbs.innerHTML = "";
+  if (activeGallery.length > 1) {
+    activeGallery.forEach((item, index) => {
+      const thumb = document.createElement("button");
+      thumb.type = "button";
+      thumb.style.backgroundImage = `url("${item.src}")`;
+      thumb.setAttribute("aria-label", `Ver imagen ${index + 1}`);
+      thumb.addEventListener("click", () => showGalleryImage(index));
+      galleryThumbs.appendChild(thumb);
+    });
+  }
+
+  galleryModal.showModal();
+  showGalleryImage(0);
+  syncIcons();
+};
+
 const openGallery = (button) => {
   const gallery = button.closest(".rich-gallery");
   const title = button.dataset.openGallery || "Galería";
-  activeGallery = [...gallery.querySelectorAll("[data-image-src]")].map((slot) => ({
+  const items = [...gallery.querySelectorAll("[data-image-src]")].map((slot) => ({
     src: slot.dataset.imageSrc,
     alt: title,
     title,
   }));
 
-  galleryThumbs.innerHTML = "";
-  activeGallery.forEach((item, index) => {
-    const thumb = document.createElement("button");
-    thumb.type = "button";
-    thumb.style.backgroundImage = `url("${item.src}")`;
-    thumb.setAttribute("aria-label", `Ver imagen ${index + 1}`);
-    thumb.addEventListener("click", () => showGalleryImage(index));
-    galleryThumbs.appendChild(thumb);
-  });
+  openGalleryItems(items);
+};
 
-  galleryModal.showModal();
-  showGalleryImage(0);
-  syncIcons();
+const openMasterplan = (button) => {
+  const title = button.dataset.openMasterplan || "Masterplan";
+  const sources = (button.dataset.masterplanSrcs || button.dataset.masterplanSrc || "")
+    .split("|")
+    .map((source) => source.trim())
+    .filter(Boolean);
+  const items = sources.map((src, index) => ({
+    src,
+    alt: sources.length > 1 ? `Masterplan ${title} ${index + 1}` : `Masterplan ${title}`,
+    title,
+    caption:
+      sources.length > 1 ? `${title} · Masterplan ${index + 1} de ${sources.length}` : `${title} · Masterplan`,
+  }));
+
+  openGalleryItems(items, true);
 };
 
 const filterListings = () => {
@@ -127,8 +202,13 @@ document.querySelectorAll("[data-open-gallery]").forEach((button) => {
   button.addEventListener("click", () => openGallery(button));
 });
 
+document.querySelectorAll("[data-open-masterplan]").forEach((button) => {
+  button.addEventListener("click", () => openMasterplan(button));
+});
+
 document.querySelector("[data-close-gallery]").addEventListener("click", () => {
   galleryModal.close();
+  resetZoom();
 });
 
 document.querySelector("[data-gallery-prev]").addEventListener("click", () => {
@@ -142,11 +222,99 @@ document.querySelector("[data-gallery-next]").addEventListener("click", () => {
 galleryModal.addEventListener("click", (event) => {
   if (event.target === galleryModal) {
     galleryModal.close();
+    resetZoom();
   }
+});
+
+zoomStage.addEventListener("wheel", (event) => {
+  if (!galleryModal.classList.contains("masterplan-view")) return;
+  event.preventDefault();
+  setZoom(zoomState.scale + (event.deltaY < 0 ? 0.25 : -0.25));
+});
+
+zoomStage.addEventListener("pointerdown", (event) => {
+  if (!galleryModal.classList.contains("masterplan-view")) return;
+  activePointers.set(event.pointerId, { x: event.clientX, y: event.clientY });
+  zoomStage.setPointerCapture(event.pointerId);
+
+  if (activePointers.size === 2) {
+    pinchState = { distance: distanceBetweenPointers(), scale: zoomState.scale };
+    dragState = null;
+    return;
+  }
+
+  if (zoomState.scale > minZoom) {
+    dragState = {
+      pointerId: event.pointerId,
+      startX: event.clientX,
+      startY: event.clientY,
+      imageX: zoomState.x,
+      imageY: zoomState.y,
+    };
+    galleryImage.style.cursor = "grabbing";
+  }
+});
+
+zoomStage.addEventListener("pointermove", (event) => {
+  if (!activePointers.has(event.pointerId)) return;
+  activePointers.set(event.pointerId, { x: event.clientX, y: event.clientY });
+
+  if (activePointers.size === 2 && pinchState) {
+    const distance = distanceBetweenPointers();
+    if (distance > 0) setZoom(pinchState.scale * (distance / pinchState.distance));
+    return;
+  }
+
+  if (!dragState || dragState.pointerId !== event.pointerId) return;
+  zoomState.x = dragState.imageX + event.clientX - dragState.startX;
+  zoomState.y = dragState.imageY + event.clientY - dragState.startY;
+  applyZoom();
+});
+
+const endZoomPointer = (event) => {
+  activePointers.delete(event.pointerId);
+  if (dragState?.pointerId === event.pointerId) dragState = null;
+  if (activePointers.size < 2) pinchState = null;
+  galleryImage.style.cursor = zoomState.scale > 1 ? "grab" : "zoom-in";
+};
+
+zoomStage.addEventListener("pointerup", endZoomPointer);
+zoomStage.addEventListener("pointercancel", endZoomPointer);
+zoomStage.addEventListener("pointerleave", endZoomPointer);
+
+zoomControls.forEach((button) => {
+  button.addEventListener("click", () => {
+    const action = button.dataset.zoomAction;
+    if (action === "in") setZoom(zoomState.scale + 0.25);
+    if (action === "out") setZoom(zoomState.scale - 0.25);
+    if (action === "reset") resetZoom();
+    if (action === "up") panZoom(0, 80);
+    if (action === "down") panZoom(0, -80);
+    if (action === "left") panZoom(80, 0);
+    if (action === "right") panZoom(-80, 0);
+  });
 });
 
 window.addEventListener("keydown", (event) => {
   if (!galleryModal.open) return;
+
+  if (galleryModal.classList.contains("masterplan-view")) {
+    if (event.key === "+" || event.key === "=") setZoom(zoomState.scale + 0.25);
+    if (event.key === "-" || event.key === "_") setZoom(zoomState.scale - 0.25);
+    if (event.key === "0") resetZoom();
+    if (event.key === "ArrowUp") panZoom(0, 80);
+    if (event.key === "ArrowDown") panZoom(0, -80);
+    if (event.key === "ArrowLeft") {
+      if (zoomState.scale > minZoom) panZoom(80, 0);
+      else showGalleryImage(activeGalleryIndex - 1);
+    }
+    if (event.key === "ArrowRight") {
+      if (zoomState.scale > minZoom) panZoom(-80, 0);
+      else showGalleryImage(activeGalleryIndex + 1);
+    }
+    return;
+  }
+
   if (event.key === "ArrowLeft") showGalleryImage(activeGalleryIndex - 1);
   if (event.key === "ArrowRight") showGalleryImage(activeGalleryIndex + 1);
 });
