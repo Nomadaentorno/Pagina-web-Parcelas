@@ -13,6 +13,14 @@ const galleryCaption = document.querySelector("[data-gallery-caption]");
 const galleryThumbs = document.querySelector("[data-gallery-thumbs]");
 const zoomStage = document.querySelector("[data-zoom-stage]");
 const zoomControls = document.querySelectorAll("[data-zoom-action]");
+const heroLayers = document.querySelectorAll(".hero-bg-layer");
+const heroImages = [
+  "imagenes/valle-san-andres-1.webp",
+  "imagenes/verde-pradera-8.webp",
+  "imagenes/el-dorado-7.webp",
+  "imagenes/altos-de-nahuelcura-2.webp",
+  "imagenes/riberas-de-antuco-10.webp",
+];
 let activeGallery = [];
 let activeGalleryIndex = 0;
 let zoomState = { scale: 1, x: 0, y: 0 };
@@ -31,6 +39,33 @@ const loadProjectImages = () => {
     };
     image.src = slot.dataset.imageSrc;
   });
+};
+
+const initHeroSlideshow = () => {
+  if (heroLayers.length < 2 || !heroImages.length) return;
+
+  heroImages.forEach((src) => {
+    const image = new Image();
+    image.src = src;
+  });
+
+  let activeLayerIndex = 0;
+  let activeImageIndex = 0;
+  heroLayers[activeLayerIndex].style.backgroundImage = `url("${heroImages[activeImageIndex]}")`;
+
+  setInterval(() => {
+    const nextImageIndex = (activeImageIndex + 1) % heroImages.length;
+    const nextLayerIndex = activeLayerIndex === 0 ? 1 : 0;
+    const currentLayer = heroLayers[activeLayerIndex];
+    const nextLayer = heroLayers[nextLayerIndex];
+
+    nextLayer.style.backgroundImage = `url("${heroImages[nextImageIndex]}")`;
+    nextLayer.classList.add("is-active");
+    currentLayer.classList.remove("is-active");
+
+    activeLayerIndex = nextLayerIndex;
+    activeImageIndex = nextImageIndex;
+  }, 3000);
 };
 
 const updateHeader = () => {
@@ -336,3 +371,4 @@ document.querySelector(".contact-form").addEventListener("submit", (event) => {
 
 window.addEventListener("load", syncIcons);
 window.addEventListener("load", loadProjectImages);
+window.addEventListener("load", initHeroSlideshow);
